@@ -158,7 +158,7 @@
 
             scrollEndTimeout = setTimeout(function () {
                 that._loadHighResImg(imgNum);
-            }, 250);
+            }, 10000);
         }
         window.addEventListener('scroll', window_scrollHandler, false);
         window_scrollHandler();
