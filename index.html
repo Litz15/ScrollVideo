@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="Fabio Cortés">
+        <meta name="description" content="Demo page of scroll2play javascript library">
+        <meta name="keywords" content="video, scroll, parallax, js, html, css ">
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0">
+        <title>scroll2play demo</title>
+        <style>
+            html {
+                height: 100%;
+                background-color:transparent;
+            }
+            body {
+                position: relative;
+                margin:0;
+                background-color:#323c46;
+                color:#FFFFFF;
+                font-family: Roboto, sans-serif;
+
+            }
+            a {
+                text-decoration:none;
+                color:#72D5A1;
+            }
+            .loader {
+                display:none;
+            }
+            body.loading .loader {
+                display: block;
+            }
+            .s2p-container {
+                opacity:1;
+                -webkit-transition: opacity 2s ease-in-out;
+                -moz-transition: opacity 2s ease-in-out;
+                -ms-transition: opacity 2s ease-in-out;
+                -o-transition: opacity 2s ease-in-out;
+                transition: opacity 2s ease-in-out;
+            }
+            body.loading .s2p-container {
+                opacity:0;
+            }
+            body.loading .page {
+                display:none;
+            }
+            .loader, .page {
+                position:relative;
+                width:100vw;
+                height:100vh;
+                line-height:100vh;
+                text-align:center;
+                font-size:8vw;
+            }
+            .page.first, .page.last {
+                background-color:#transparent;
+            }
+            .viewport-units-support {
+                display: none;
+            }
+            .no-cssvhunit .viewport-units-support {
+                display: block;
+                background-color:rgb(255, 224, 0);
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                color: #FF0000;
+                font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+        </style>
+        <script src="scripts/modernizr.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    </head>
+
+    <body class="loading">
+        <div class="viewport-units-support">
+            <span>This demo will not run, your browser doesn't support</span>
+            <strong>vw</strong>
+            <span>and</span>
+            <strong>vh</strong>
+            <span>units!</span>
+        </div>
+        <div id="s2p-container" class="s2p-container"></div>
+        <div class="loader">Loading 0%</div>
+        <section class="page first">scroll2play &#9660;</section>
+        <section class="page"></section>
+        <section class="page">ESTA</section>
+        <section class="page">ES</section>
+        <section class="page">LA</section>
+        <section class="page">PRIMERA</section>
+        <section class="page">PRUEBA!</section>
+        <section class="page">lml</section>
+        <section class="page"></section>
+        <section class="page last">Built with
+            <a href="https://github.com/pwalczyszyn/scroll2play" target="_blank">scroll2play</a>
+            <a href="https://github.com/pwalczyszyn/scroll2play">
+                <img style="position: absolute; top: 0; left: 0; border: 0;" src="images/+play.png">
+            </a>
+        </section>
+        <script src="scripts/s2p.js"></script>
+        <script>
+            var s2p = new Scroll2Play('s2p-container', 'images/lowres', 'images/highres', 'Vid1', 48, 'jpg', '00');
+            s2p.onprogress = function(progress) {
+                var loader = document.querySelector('.loader');
+                loader.innerHTML = 'Loading' + Math.floor(progress * 100) + '%';
+            }
+            s2p.onload = function() {
+                document.body.classList.remove('loading');
+            }
+            s2p.load();
+        </script>
+    </body>
+
+</html>
