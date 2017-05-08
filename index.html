@@ -54,6 +54,11 @@
             const next = document.getElementById('next')
 
             next.addEventListener('click', (event) => {
+              next()
+            })
+
+            function next() {
+
               var s2p2 = new Scroll2Play('s2p-container', 'images/next', 'way', 209, 'jpg', '000');
               s2p.onprogress = function(progress) {
                   var loader = document.querySelector('.loader');
@@ -63,8 +68,7 @@
                   document.body.classList.remove('loading');
               }
               s2p.load();
-            })
-
+            }
         </script>
     </body>
 
