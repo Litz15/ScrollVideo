@@ -54,7 +54,7 @@
             const next = document.getElementById('next')
 
             next.addEventListener('click', (event) => {
-              var s2p = new Scroll2Play('s2p-container', 'images/lowres', 'images/highres', 'Vide1', 211, 'jpg', '000');
+              var s2p2 = new Scroll2Play('s2p-container', 'images/lowres', 'images/highres', 'Vide1', 211, 'jpg', '000');
               s2p.onprogress = function(progress) {
                   var loader = document.querySelector('.loader');
                   loader.innerHTML = 'Loading' + Math.floor(progress * 100) + '%';
