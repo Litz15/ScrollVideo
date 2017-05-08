@@ -54,10 +54,10 @@
             const next = document.getElementById('next')
 
             next.addEventListener('click', (event) => {
-              next()
+              nextS2P()
             })
 
-            function next() {
+            function nextS2P() {
               var s2p2 = new Scroll2Play('s2p-container', 'images/next', 'way', 209, 'jpg', '000');
               s2p.onprogress = function(progress) {
                   var loader = document.querySelector('.loader');
