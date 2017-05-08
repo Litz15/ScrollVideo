@@ -37,7 +37,7 @@
         <section class="page last">Built with
             <a href="https://github.com/pwalczyszyn/scroll2play" target="_blank">scroll2play</a>
             <a href="https://github.com/pwalczyszyn/scroll2play">
-                <img style="position: absolute; top: 0; left: 0; border: 0;" src="images/+play.png">
+                <img style="position: absolute; top: 0; left: 0; border: 0;" id="next" src="images/+play.png">
             </a>
         </section>
         <script src="scripts/s2p.js"></script>
@@ -51,6 +51,13 @@
                 document.body.classList.remove('loading');
             }
             s2p.load();
+
+            const next = document.getElementById('next')
+
+            pauseButton.addEventListener('click', (event) => {
+              alert("Click")
+            })
+
         </script>
     </body>
 
